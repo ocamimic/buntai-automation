@@ -2,12 +2,13 @@ import gspread
 from google.oauth2.service_account import Credentials
 import random
 import numpy
-
+#スプレッドシートのリンク
 URL = 'https://docs.google.com/spreadsheets/d/19ZNXHML4k84KlfhCj8QfcTH3CjSicviZfvNeKV3E6kc/edit?usp=sharing'
 scopes = [
     'https://www.googleapis.com/auth/spreadsheets',
     'https://www.googleapis.com/auth/drive'
 ]
+#ローカルで書いてるときの名残
 credentials = Credentials.from_service_account_file(
     'python/gss/gss_credential.json',
     scopes=scopes
@@ -28,12 +29,17 @@ while i < rowCount:
     randNum.append(random.random())
     i += 1
 shuffled = [x for _,x in sorted(zip(randNum,value))]
-template = ['[[tab No.', ']]\n', '\n[[/tab]]\n']
+template = ['[[tab No.', ']]\n', '\n[[/tab]]\n', '----', '[[include]]']
 output = '[[tabview]]\n'
+authorAns = []
 j = 0
 while j < rowCount:
     output += template[0] + str(j + 1) + template[1] + value[j][contentIndex] + template[2]
+    authorAns.append(value[1])
     j += 1
-output += '[[/tabview]]'
-processedSheet = sheet.add_worksheet(title="カンペ", rows=rowCount, cols=colCount)
-processedSheet.acell("A1").value = output
+output += '[[/tabview]]\n'
+file = open('文体集計出力.txt', 'a')
+#未完成。テキストファイルで出力する。
+#参加者リスト、本文を格納したタブ、番号と著者の対応表
+file.write(output)
+file.write(template[3])
