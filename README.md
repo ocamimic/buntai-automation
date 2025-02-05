@@ -23,3 +23,6 @@ gss_credential.jsonの作成や使用はこちらを参考にしました↓
 
 gspreadのドキュメントです↓
 [Examples of gspread Usage](https://docs.gspread.org/en/v6.1.3/user-guide.html#getting-a-cell-value)
+
+作品をシャッフルする部分で参考にしました↓
+[Python リストを参照してリストをソート](https://qiita.com/ossyaritoori/items/c567d63596401d0d9590)
