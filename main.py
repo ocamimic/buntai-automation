@@ -3,7 +3,7 @@ from google.oauth2.service_account import Credentials
 import random
 import numpy
 #スプレッドシートのリンク
-URL = 'https://docs.google.com/spreadsheets/d/19ZNXHML4k84KlfhCj8QfcTH3CjSicviZfvNeKV3E6kc/edit?usp=sharing'
+URL = ''
 scopes = [
     'https://www.googleapis.com/auth/spreadsheets',
     'https://www.googleapis.com/auth/drive'
